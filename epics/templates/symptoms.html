@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Predictor</title>
+    <link rel="stylesheet" href="1.css">
+    <style>
+        /* Additional CSS styles specific to the symptom page */
+        
+        body {
+            background-color: #131315;
+            font-family: Arial, sans-serif;
+        }
+
+        .prediction-box {
+            width: 400px;
+            padding: 40px;
+            background-color: #242026;
+            box-shadow: 0 15px 25px rgba(143, 124, 236, 0.7);
+            border-radius: 10px;
+            margin: 0 auto;
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .prediction-box h2 {
+            margin-bottom: 30px;
+            color: #fff;
+            font-size: 24px;
+        }
+
+        .prediction-box p {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .prediction-box .symptom-input {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .prediction-box .symptom-input label {
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .prediction-box .symptom-input input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-bottom: 1px solid #fff;
+            background-color: transparent;
+            color: #fff;
+        }
+
+        .prediction-box .button-form {
+            display: flex;
+            justify-content: center;
+        }
+
+        .prediction-box .button-form button {
+            padding: 10px 20px;
+            color: #CBBDDB;
+            font-size: 16px;
+            text-decoration: none;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: .5s;
+            letter-spacing: 4px;
+            border: 1px solid #8F7CEC;
+            margin-top: 20px;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .prediction-box .button-form button:hover {
+            background: #8F7CEC;
+            color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #8F7CEC, 0 0 25PX #8F7CEC, 0 0 50px #8F7CEC, 0 0 100px #8F7CEC;
+        }
+
+        .prediction-box .prediction-result {
+            margin-top: 40px;
+            color: #fff;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="prediction-box">
+        <h2 id="title">Symptom Checker</h2>
+        <form action="/predict" method="POST">
+            <div class="symptom-input">
+                <label for="symptom1">Symptom 1:</label>
+                <input type="text" id="symptom1" name="symptom1" required>
+            </div>
+            <div class="symptom-input">
+                <label for="symptom2">Symptom 2:</label>
+                <input type="text" id="symptom2" name="symptom2" required>
+            </div>
+            <div class="symptom-input">
+                <label for="symptom3">Symptom 3:</label>
+                <input type="text" id="symptom3" name="symptom3" required>
+            </div>
+            <div class="button-form">
+                <button type="submit" id="submit">Submit</button>
+            </div>
+        </form>
+        
+        {% if prediction %}
+        <div class="prediction-result">
+            <p>Prediction:</p>
+            <h3>{{ prediction }}</h3>
+        </div>
+        {% endif %}
+        
+    </div>
+</body>
+</html>
